@@ -6,11 +6,14 @@ namespace Ejercicio1
 {
     internal class ExpedienteService
     {
-        string[100] nombres;
-        string[100] DNIs;
-        double[100] montos;
+        #region Variables "GLOBALES"
+        string[] nombres;
+        string[] DNIs;
+        double[] montos;
         int contadorIngresados;
+        #endregion
 
+        #region CONSTRUCTOR
         public ExpedienteService()
         {
             nombres = new string [100];
@@ -18,13 +21,19 @@ namespace Ejercicio1
             montos = new double [100];
             contadorIngresados = 0;
         }
+        #endregion
 
+        #region REGISTRAR EXPEDIENTE
         public void RegistrarExpediente(string nombre, string dni, double monto)
         {
             nombres[contadorIngresados] = nombre;
             DNIs[contadorIngresados] = dni;
             montos[contadorIngresados] = monto;
+            contadorIngresados++;
         }
+        #endregion
+
+        #region CALCULAR TOTAL
         public double CaluclarTotal()
         {
             if (contadorIngresados != 0)
@@ -42,6 +51,47 @@ namespace Ejercicio1
                 return 0;
             }
         }
+        #endregion
 
+        #region VER MAYOR MONTO
+        public double VerMayor()
+        {
+            double mayor = 0;
+            for (int i = 0; i < contadorIngresados; i++)
+            {
+                if (montos[i] > mayor)
+                {
+                    mayor = montos[i];
+                }
+            }
+            return mayor;
+        }
+        #endregion
+
+        #region VER CANTIDAD DE INGRESADOS
+        public int VerCantidadDeIngresados()
+        {
+            return contadorIngresados;
+        }
+        #endregion
+
+        #region VER EXPEDIENTE
+        public string VerExpediente(int idx)
+        {
+            return "Nombre: " + nombres[idx] + "\nDNI: " + DNIs[idx] + "\nMonto: " + montos[idx];
+        }
+        #endregion
+
+        #region VER EXPEDIENTES
+        private string[] VerExpedientes()
+        {
+            string[] expedientes = new string[contadorIngresados];
+            for (int i = 0; i < contadorIngresados; i++)
+            {
+                expedientes[i] = "Nombre: " + nombres[i] + "\nDNI: " + DNIs[i] + "\nMonto: " + montos[i];
+            }
+            return expedientes;
+        }
+        #endregion
     }
 }

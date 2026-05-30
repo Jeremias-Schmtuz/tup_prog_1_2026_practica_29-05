@@ -41,7 +41,7 @@ namespace Ejercicio1
                 double acumuladorMontos = 0;
                 for (int i = 0; i < contadorIngresados; i++)
                 {
-                    acumuladorMontos += montos[contadorIngresados];
+                    acumuladorMontos += montos[i];
 
                 }
                 return acumuladorMontos;
@@ -78,17 +78,17 @@ namespace Ejercicio1
         #region VER EXPEDIENTE
         public string VerExpediente(int idx)
         {
-            return "Nombre: " + nombres[idx] + "\nDNI: " + DNIs[idx] + "\nMonto: " + montos[idx];
+            return "Nombre: " + nombres[idx] + "| DNI: " + DNIs[idx] + "| Monto: " + montos[idx];
         }
         #endregion
 
         #region VER EXPEDIENTES
-        private string[] VerExpedientes()
+        public string[] VerExpedientes()
         {
             string[] expedientes = new string[contadorIngresados];
             for (int i = 0; i < contadorIngresados; i++)
             {
-                expedientes[i] = "Nombre: " + nombres[i] + "\nDNI: " + DNIs[i] + "\nMonto: " + montos[i];
+                expedientes[i] = "Nombre: " + nombres[i] + "   |   DNI: " + DNIs[i] + "   |   Monto: " + montos[i];
             }
             return expedientes;
         }

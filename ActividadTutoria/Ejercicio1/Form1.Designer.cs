@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
             button1 = new Button();
+            tbMonto = new TextBox();
+            tbDNI = new TextBox();
+            label3 = new Label();
+            label1 = new Label();
+            tbNombre = new TextBox();
+            label2 = new Label();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
@@ -49,11 +49,11 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(tbMonto);
+            groupBox1.Controls.Add(tbDNI);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(tbNombre);
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
@@ -61,54 +61,6 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Registrar Nombres";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(123, 53);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Nombre";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(147, 88);
-            label2.Name = "label2";
-            label2.Size = new Size(27, 15);
-            label2.TabIndex = 2;
-            label2.Text = "DNI";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(131, 129);
-            label3.Name = "label3";
-            label3.Size = new Size(43, 15);
-            label3.TabIndex = 3;
-            label3.Text = "Monto";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(198, 50);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(159, 23);
-            textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(198, 126);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(159, 23);
-            textBox2.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(198, 88);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(159, 23);
-            textBox3.TabIndex = 3;
             // 
             // button1
             // 
@@ -120,6 +72,57 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // tbMonto
+            // 
+            tbMonto.Location = new Point(198, 126);
+            tbMonto.Name = "tbMonto";
+            tbMonto.Size = new Size(159, 23);
+            tbMonto.TabIndex = 2;
+            tbMonto.TextChanged += tbMonto_TextChanged;
+            // 
+            // tbDNI
+            // 
+            tbDNI.Location = new Point(198, 88);
+            tbDNI.Name = "tbDNI";
+            tbDNI.Size = new Size(159, 23);
+            tbDNI.TabIndex = 3;
+            tbDNI.TextChanged += tbDNI_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(131, 129);
+            label3.Name = "label3";
+            label3.Size = new Size(43, 15);
+            label3.TabIndex = 3;
+            label3.Text = "Monto";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(123, 53);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Nombre";
+            // 
+            // tbNombre
+            // 
+            tbNombre.Location = new Point(198, 50);
+            tbNombre.Name = "tbNombre";
+            tbNombre.Size = new Size(159, 23);
+            tbNombre.TabIndex = 1;
+            tbNombre.TextChanged += tbNombre_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(147, 88);
+            label2.Name = "label2";
+            label2.Size = new Size(27, 15);
+            label2.TabIndex = 2;
+            label2.Text = "DNI";
+            // 
             // button2
             // 
             button2.Location = new Point(32, 235);
@@ -128,6 +131,7 @@
             button2.TabIndex = 1;
             button2.Text = "Calcular Monto Total";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -137,6 +141,7 @@
             button3.TabIndex = 2;
             button3.Text = "Ver Monto Mayor";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -146,6 +151,7 @@
             button4.TabIndex = 3;
             button4.Text = "Ver Ingresados";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // label4
             // 
@@ -155,6 +161,7 @@
             label4.Size = new Size(38, 15);
             label4.TabIndex = 4;
             label4.Text = "label4";
+            label4.Click += label4_Click;
             // 
             // label5
             // 
@@ -180,8 +187,9 @@
             button5.Name = "button5";
             button5.Size = new Size(289, 45);
             button5.TabIndex = 7;
-            button5.Text = "Ver Expediente";
+            button5.Text = "Ver Expedientes";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // Form1
             // 
@@ -210,10 +218,10 @@
         private Label label3;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox tbNombre;
         private Button button1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox tbMonto;
+        private TextBox tbDNI;
         private Button button2;
         private Button button3;
         private Button button4;
